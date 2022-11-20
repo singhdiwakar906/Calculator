@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html style="background: linear-gradient(45deg, black, transparent);"><head>
+    <title>Calculator</title>
+    <style>
+        div{
+            /*border: 1px solid black;*/
+            width: 212px;
+            margin-left: 32%;
+            /*margin-right: 20%;*/
+            padding:5px;
+            border-radius: 20px;
+        }
+        #title{
+            border: 2px solid black;
+            margin-bottom: 40px;
+            width: 300px;
+            margin-left: 34%;
+
+        }
+        .row{
+            border: 2px solid black;
+            background: black;
+        }
+        input{
+            /*margin-left: 15%;*/
+            width: 200px;
+            height:30px;
+            background: black;
+        }
+        .txt-center{
+            margin-left: 21px;   
+        }
+        button{
+            width:50px;
+            padding:10px;
+            background: lawngreen;
+            border-radius: 20px;
+            cursor:pointer;
+        }
+        #cls {
+            width: 187px;
+            margin-left: 5%;
+            background: #e91eab;
+            padding: 8px;
+            font-weight: 900;
+        }
+        .op {
+            background: red;
+        }
+        .eq{
+            background: yellow;
+           
+        }
+    </style>
+</head>  
+<body>
+    <div id="title" style="
+">
+    <h1 class="txt-center"><b>CALCULATE ME</b></h1>
+    </div>
+    <div>
+        <div>
+        <input id="inp" type="text" style="text-align:center;border:5px solid black;padding:5px;border-radius:5px;font-size: 28px;font-weight: bold;color: #ff0303fc;" placeholder="0">
+        </div>
+    <div class="row">
+        <button class="btn">7</button>
+        <button class="btn">8</button>
+        <button class="btn">9</button>
+        <button class="btn op">+</button>
+    </div>
+     <div class="row">
+        <button class="btn">4</button>
+        <button class="btn">5</button>
+        <button class="btn">6</button>
+        <button class="btn op">-</button>
+    </div>
+     <div class="row">
+        <button class="btn">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <button class="btn op">x</button>
+    </div>
+     <div class="row">
+        <button class="btn op">.</button>
+        <button class="btn">0</button>
+        <button class="btn op">/</button>
+        <button class="btn eq">=</button>
+    </div>
+    <div class="row">
+        <button id="cls" class="btn">clear</button>
+        
+    </div>
+    </div>
+    <script>
+        let string = " ";
+        let buttons = document.querySelectorAll(".btn");
+        Array.from(buttons).forEach((button)=>{
+            button.addEventListener('click',(e)=>{
+                if(e.target.innerHTML == '='){
+                    string=eval(string);
+                    document.getElementById("inp").value = string;
+                }
+                else if(e.target.innerHTML == 'x'){
+                    string = string + '*';
+                    document.getElementById("inp").value = string;
+                }
+                else if(e.target.innerHTML == 'clear'){
+                    string="";
+                    document.getElementById("inp").value = string;
+                }
+                else{
+                string = string + e.target.innerHTML;
+                console.log(string);
+                document.getElementById("inp").value = string;
+                }
+            })
+        })
+    </script>       
+
+
+</body></html>
